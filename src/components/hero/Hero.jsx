@@ -46,9 +46,9 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="hTitle"
         >
-          Hey There,
+          Hi,
           <br />
-          <span>I'm Robert!</span>
+          <span>I'm Albert! 👋</span>
         </motion.h1>
         {/* AWARDS */}
         <motion.div
@@ -57,9 +57,9 @@ const Hero = () => {
           animate="animate"
           className="awards"
         >
-          <motion.h2 variants={awardVariants}>Top Rated Designer</motion.h2>
+          <motion.h2 variants={awardVariants}>Passioned</motion.h2>
           <motion.p variants={awardVariants}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Seasoned Backend, Flutter & React Mobile Application Developer.
           </motion.p>
           <motion.div variants={awardVariants} className="awardList">
             <motion.img variants={awardVariants} src="/award1.png" alt="" />
@@ -123,7 +123,7 @@ const Hero = () => {
             <img src="/youtube.png" alt="" />
           </motion.a>
           <motion.div variants={followVariants} className="followTextContainer">
-            <div className="followText">FOLLOW ME</div>
+            <div className="followText">CONNECT WITH ME</div>
           </motion.div>
         </motion.div>
         {/* BUBBLE */}
@@ -135,11 +135,11 @@ const Hero = () => {
           className="certificate"
         >
           <img src="/certificate.png" alt="" />
-          LMA CERTIFICED
+          FLUTTER DEV
           <br />
-          PROFESSIONAL
+          PYTHON BACKEND DEV
           <br />
-          UI DESIGNER
+          DEV`Ops
         </motion.div>
         {/* CONTACT BUTTON */}
         <motion.a
