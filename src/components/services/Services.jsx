@@ -1,3 +1,4 @@
+import ScrollVelocity from "../scroll/scroll";
 import ComputerModelContainer from "./computer/ComputerModelContainer";
 import ConsoleModelContainer from "./console/ConsoleModelContainer";
 import Counter from "./Counter";
@@ -5,6 +6,7 @@ import MugModelContainer from "./mug/MugModelContainer";
 import "./services.css";
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
+import SpotlightCard from "./spotlight/spotlight";
 
 const textVariants = {
   initial: {
@@ -64,13 +66,25 @@ const Services = () => {
   const isInView = useInView(ref, { margin: "-200px" });
   return (
     <div className="services" ref={ref}>
+      <div className="scroller1">
+        <ScrollVelocity
+          texts={['Trust The Process']}
+          // velocity={velocity}
+          className="custom-scroll-text"
+        />
+      </div>
+
       <div className="sSection left">
+
         <motion.h1
           variants={textVariants}
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          How do 
+          <span className="sTitle1">
+            Projects
+          </span>
+          PROJECTS
         </motion.h1>
         <motion.div
           variants={listVariants}
@@ -84,6 +98,7 @@ const Services = () => {
               key={service.id}
               onClick={() => setCurrentServiceId(service.id)}
             >
+              <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
               <div className="serviceIcon">
                 <img src={service.img} alt="" />
               </div>
@@ -91,12 +106,13 @@ const Services = () => {
                 <h2>{service.title}</h2>
                 <h3>{service.counter} Projects</h3>
               </div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </motion.div>
         <div className="counterList">
-          <Counter from={0} to={104} text="Projects Completed" />
-          <Counter from={0} to={72} text="Happy Clients" />
+          <Counter from={0} to={33} text="Projects Completed" />
+          <Counter from={0} to={20} text="Happy Clients" />
         </div>
       </div>
       <div className="sSection right">
