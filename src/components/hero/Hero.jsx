@@ -4,6 +4,10 @@ import Speech from "./Speech";
 import { motion } from "motion/react";
 import Shape from "./Shape";
 import { Suspense } from "react";
+import ComputerModelContainer from "../services/computer/ComputerModelContainer";
+import MugModelContainer from "../services/mug/MugModelContainer";
+import ConsoleModelContainer from "../services/console/ConsoleModelContainer";
+import RotatingText from "../rotatingtext/rotatingtext";
 
 const awardVariants = {
   initial: {
@@ -41,14 +45,24 @@ const Hero = () => {
       <div className="hSection left">
         {/* TITLE */}
         <motion.h1
-          initial={{ y: -100, opacity: 0 }}
+          initial={{ y: -90, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
           className="hTitle"
         >
-          Hi,
-          <br />
-          <span>I'm Albert! 👋</span>
+          HE
+          <RotatingText
+            texts={['React', 'Bits', 'Is', 'Cool!']}
+            mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
+            staggerFrom={"last"}
+            initial={{ y: "10%" }}
+            animate={{ y: 10 }}
+            exit={{ y: "-100%" }}
+            staggerDuration={0.025}
+            splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1"
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2000}
+          />
         </motion.h1>
         {/* AWARDS */}
         <motion.div
@@ -59,7 +73,7 @@ const Hero = () => {
         >
           <motion.h2 variants={awardVariants}>Passioned</motion.h2>
           <motion.p variants={awardVariants}>
-          Seasoned Backend, Flutter & React Mobile Application Developer.
+            Seasoned Backend, Flutter & React Mobile Application Developer.
           </motion.p>
           <motion.div variants={awardVariants} className="awardList">
             <motion.img variants={awardVariants} src="/award1.png" alt="" />
@@ -123,7 +137,7 @@ const Hero = () => {
             <img src="/youtube.png" alt="" />
           </motion.a>
           <motion.div variants={followVariants} className="followTextContainer">
-            <div className="followText">CONNECT WITH ME</div>
+            <div className="followText">LET'S CONNECT</div>
           </motion.div>
         </motion.div>
         {/* BUBBLE */}
@@ -163,18 +177,18 @@ const Hero = () => {
             }}
           >
             <svg viewBox="0 0 200 200" width="150" height="150">
-              <circle cx="100" cy="100" r="90" fill="pink" />
+              <circle cx="100" cy="100" r="90" fill="white" />
               <path
                 id="innerCirclePath"
                 fill="none"
                 d="M 100,100 m -60,0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0"
               />
               <text className="circleText">
-                <textPath href="#innerCirclePath">Hire Now •</textPath>
+                <textPath href="#innerCirclePath">Yoo Let's </textPath>
               </text>
               <text className="circleText">
                 <textPath href="#innerCirclePath" startOffset="44%">
-                  Contact Me •
+                  Connect •
                 </textPath>
               </text>
             </svg>
@@ -203,7 +217,8 @@ const Hero = () => {
           </Suspense>
         </Canvas>
         <div className="hImg">
-          <img src="/hero.png" alt="" />
+          {/* <img src="/hero.png" alt="" /> */}
+          <ComputerModelContainer />
         </div>
       </div>
     </div>

@@ -70,7 +70,7 @@ const Services = () => {
           animate={isInView ? "animate" : "initial"}
           className="sTitle"
         >
-          How do I help?
+          How do 
         </motion.h1>
         <motion.div
           variants={listVariants}

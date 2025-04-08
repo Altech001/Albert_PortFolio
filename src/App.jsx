@@ -5,6 +5,7 @@
 
 import { lazy, Suspense } from "react";
 import LazyLoad from "react-lazyload";
+import Waves from "./components/waves/waves";
 
 const Hero = lazy(() => import("./components/hero/Hero"));
 const Services = lazy(() => import("./components/services/Services"));
@@ -13,35 +14,51 @@ const Contact = lazy(() => import("./components/contact/Contact"));
 
 const App = () => {
   return (
-    <div className="container">
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#home">
-            <Hero />
-          </section>
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#services">
-            <Services />
-          </section>{" "}
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"600vh"} offset={-100}>
-          {/* <section id="#portfolio"> */}
-          <Portfolio />
-          {/* </section> */}{" "}
-        </LazyLoad>
-      </Suspense>
-      <Suspense fallback={"loading..."}>
-        <LazyLoad height={"100vh"} offset={-100}>
-          <section id="#contact">
-            <Contact />
-          </section>{" "}
-        </LazyLoad>
-      </Suspense>
+    <div>
+
+      <Waves
+        lineColor="#aaa"
+        backgroundColor="transparent"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.9}
+        tension={0.01}
+        maxCursorMove={100}
+        xGap={12}
+        yGap={36}
+      />
+      <div className="container">
+        <Suspense fallback={"loading..."}>
+          <LazyLoad height={"100vh"} offset={-100}>
+            <section id="#home">
+              <Hero />
+            </section>
+          </LazyLoad>
+        </Suspense>
+        <Suspense fallback={"loading..."}>
+          <LazyLoad height={"100vh"} offset={-100}>
+            <section id="#services">
+              <Services />
+            </section>{" "}
+          </LazyLoad>
+        </Suspense>
+        <Suspense fallback={"loading..."}>
+          <LazyLoad height={"600vh"} offset={-100}>
+            {/* <section id="#portfolio"> */}
+            <Portfolio />
+            {/* </section> */}{" "}
+          </LazyLoad>
+        </Suspense>
+        <Suspense fallback={"loading..."}>
+          <LazyLoad height={"100vh"} offset={-100}>
+            <section id="#contact">
+              <Contact />
+            </section>{" "}
+          </LazyLoad>
+        </Suspense>
+      </div>
     </div>
   );
 };
